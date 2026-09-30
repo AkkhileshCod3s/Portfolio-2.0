@@ -21,7 +21,6 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
-    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "vite": "^5.3.4"
