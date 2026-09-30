@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Smooth scrolling for anchor jumps is animated in JS (src/lib/smoothScroll.ts)
+     for a slower, longer glide. Keep native behavior off to avoid double animation. */
+  scroll-behavior: auto;
+}
+
+body {
+  background: #0c0c0c;
+}
+
+#root {
+  background: #0c0c0c;
+}
+
+html,
+body,
+#root {
+  font-family: 'Kanit', sans-serif;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Marquee */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-row,
+.marquee-row-reverse {
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.marquee-row {
+  animation-name: marquee-left;
+}
+
+.marquee-row-reverse {
+  animation-name: marquee-right;
+}
+
+@media (min-width: 640px) {
+  .marquee-row,
+  .marquee-row-reverse {
+    animation-duration: 30s;
+  }
+}
+
+.marquee-row:hover,
+.marquee-row-reverse:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-row,
+  .marquee-row-reverse {
+    animation: none;
+  }
+}
